@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Member</title>
+    <th:block th:include="bootstrap::header"/>
+</head>
+<body>
+
+<form action="" method="post">
+
+    <input type="text" placeholder="firstname" name="firstname" th:value="${member.firstname}">
+    <input type="text" placeholder="lastname" name="lastname" th:value="${member.lastname}">
+    <input type="date" placeholder="birthday" name="birthday" th:value="${member.birthday}">
+    <input type="text" placeholder="phonenumber" name="phonenumber" th:value="${member.phonenumber}">
+    <input type="number" placeholder="rating" name="rating" th:value="${member.rating}">
+    <select name="role">
+        <option value="DIRECTOR" th:selected="${member.role eq 'DIRECTOR'}">Director</option>
+        <option value="CASHIER" th:selected="${member.role eq 'CASHIER'}">Cashier</option>
+        <option value="TEAMLEADER" th:selected="${member.role eq 'TEAMLEADER'}">Teamleader</option>
+        <option value="MEMBER" th:selected="${member.role eq 'MEMBER'}">Member</option>
+    </select>
+    <input type="submit" value="Update" class="btn btn-warning btn-sm">
+
+</form>
+<th:block th:include="bootstrap::footer"/>
+</body>
+</html>

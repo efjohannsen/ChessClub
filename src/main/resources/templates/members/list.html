@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Members</title>
+    <th:block th:include="bootstrap::header"/>
+</head>
+<body>
+
+<a class="btn btn-primary" href="members/create">Create Member</a>
+
+<table>
+    <thead>
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Birthday</td>
+        <td>Phone Number</td>
+        <td>Member Type</td>
+        <td>Rating</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="member: ${members}">
+        <td th:text="${member.firstname}">1</td>
+        <td th:text="${member.lastname}">2</td>
+        <td th:text="${member.birthday}">3</td>
+        <td th:text="${member.phonenumber}">4</td>
+        <td th:text="${member.role}">5</td>
+        <td th:text="${member.rating}">6</td>
+        <td><a class="btn btn-warning btn-sm" th:href="@{'members/update/' + ${member.id}}">Update</a></td>
+        <td><a class="btn btn-danger btn-sm" th:href="@{'members/delete/' + ${member.id}}">Delete</a></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+<th:block th:include="bootstrap::footer"/>
+</body>
+</html>

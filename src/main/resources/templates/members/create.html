@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Member</title>
+    <th:block th:include="bootstrap::header"/>
+</head>
+<body>
+
+<form action="" method="post">
+
+    <input type="text" placeholder="firstname" name="firstname">
+    <input type="text" placeholder="lastname" name="lastname">
+    <input type="date" placeholder="birthday" name="birthday">
+    <input type="text" placeholder="phonenumber" name="phonenumber">
+    <input type="number" placeholder="rating" name="rating">
+    <select name="role">
+        <option value="DIRECTOR">Director</option>
+        <option value="CASHIER">Cashier</option>
+        <option value="TEAMLEADER">Teamleader</option>
+        <option value="MEMBER" selected>Member</option>
+    </select>
+    <input class="btn btn-primary" type="submit" value="Create">
+
+</form>
+<th:block th:include="bootstrap::footer"/>
+</body>
+</html>
