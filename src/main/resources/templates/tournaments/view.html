@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Tournament</title>
+</head>
+<body>
+
+<table>
+    <tbody>
+    <tr>
+        <td>Name:</td>
+        <td th:text="${tournament.name}"></td>
+    </tr>
+    <tr>
+        <td>Date:</td>
+        <td th:text="${tournament.date}"></td>
+    </tr>
+    <tr>
+        <td>Location:</td>
+        <td th:text="${tournament.location}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                <tr>
+                    <th>Enrolled Members</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="member: ${enrolled}">
+                    <td th:text="${member.firstname + ' ' + member.lastname}"></td>
+                    <td><a th:href="@{'/tournaments/' + ${tournament.id} + '/delist/' +${member.id}}">></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+            <table>
+                <thead>
+                <tr>
+                    <th>Members</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="member: ${notEnrolled}">
+                    <td><a th:href="@{'/tournaments/' + ${tournament.id} + '/enlist/' +${member.id}}"><</a></td>
+                    <td th:text="${member.firstname + ' ' + member.lastname}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>

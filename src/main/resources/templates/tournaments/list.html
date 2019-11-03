@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Members</title>
+    <th:block th:include="bootstrap::header"/>
+</head>
+<body>
+
+<a class="btn btn-primary" href="tournaments/create">Create Tournament</a>
+
+<table>
+    <thead>
+    <tr>
+        <td>Tournament Name</td>
+        <td>Date</td>
+        <td>Location</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tournament: ${tournaments}">
+        <td th:text="${tournament.name}">1</td>
+        <td th:text="${tournament.date}">2</td>
+        <td th:text="${tournament.location}">3</td>
+        <td><a class="btn btn-success btn-sm" th:href="@{'/tournaments/view/' + ${tournament.id}}">View</a></td>
+        <td><a class="btn btn-warning btn-sm" th:href="@{'/tournaments/update/' + ${tournament.id}}">Update</a></td>
+        <td><a class="btn btn-danger btn-sm" th:href="@{'/tournaments/delete/' + ${tournament.id}}">Delete</a></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+<th:block th:include="bootstrap::footer"/>
+</body>
+</html>
