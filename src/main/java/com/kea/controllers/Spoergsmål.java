@@ -7,7 +7,6 @@ public class Spoergsmål {
     * port i application properties ikke benyttet?
     * se jarls dokument samt weshop kode / one to many, osv.
     * hvordan skiftes H2 med en hosted SQL database
-    * hvorfor er der behov for redirect?
     * @table - er default at den tager navnet på klassen?
     *     @OneToOne( cascade = CascadeType.ALL,
             mappedBy = "companyProdDesc" )
@@ -17,5 +16,6 @@ public class Spoergsmål {
     * bruges @ManyToMany nogensinde?
     * Query i repository?
     * JARLS noter om manytomany, ikke brug for at lave et nyt table
+    * hvorfor ikke @autowired
     */
 }
