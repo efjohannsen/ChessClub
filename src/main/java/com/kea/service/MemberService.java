@@ -29,6 +29,8 @@ public class MemberService {
         Optional<Member> optional = memberRepository.findById(id);
         if (optional.isPresent()) {
             memberRepository.delete(optional.get());
+        } else {
+            throw new IllegalArgumentException("No member with id: " + id);
         }
     }
 
