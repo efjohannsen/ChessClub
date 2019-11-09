@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>View Tournament</title>
+    <th:block th:include="bootstrap::header"/>
 </head>
 <body>
 
@@ -36,7 +37,7 @@
                 <tbody>
                 <tr th:each="member: ${enrolled}">
                     <td th:text="${member.firstname + ' ' + member.lastname}"></td>
-                    <td><a th:href="@{'/tournaments/' + ${tournament.id} + '/delist/' +${member.id}}">></a></td>
+                    <td><a th:href="@{'/tournaments/' + ${tournament.id} + '/delist/' +${member.id}}" class="btn btn-danger btn-sm">></a></td>
                 </tr>
                 </tbody>
             </table>
@@ -50,14 +51,14 @@
                 </thead>
                 <tbody>
                 <tr th:each="member: ${notEnrolled}">
-                    <td><a th:href="@{'/tournaments/' + ${tournament.id} + '/enlist/' +${member.id}}"><</a></td>
+                    <td><a th:href="@{'/tournaments/' + ${tournament.id} + '/enlist/' +${member.id}}" class="btn btn-success btn-sm"><</a></td>
                     <td th:text="${member.firstname + ' ' + member.lastname}"></td>
                 </tr>
                 </tbody>
             </table>
         </td>
     </tr>
-
+    <th:block th:include="bootstrap::footer"/>
     </tbody>
 </table>
 

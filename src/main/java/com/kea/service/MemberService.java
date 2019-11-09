@@ -1,8 +1,10 @@
 package com.kea.service;
 
 import com.kea.model.Member;
+import com.kea.model.Tournament;
 import com.kea.repository.MemberRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,10 +27,15 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
+    @Transactional
     public void deleteMember(int id) {
         Optional<Member> optional = memberRepository.findById(id);
         if (optional.isPresent()) {
-            memberRepository.delete(optional.get());
+            Member member = optional.get();
+            for (Tournament tournament : member.getTournaments()) {
+                tournament.getMembers().remove(member);
+            }
+            memberRepository.delete(member);
         } else {
             throw new IllegalArgumentException("No member with id: " + id);
         }

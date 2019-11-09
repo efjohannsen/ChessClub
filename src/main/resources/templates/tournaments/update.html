@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Tournament</title>
+    <th:block th:include="bootstrap::header"/>
 </head>
 <body>
 
@@ -11,9 +12,9 @@
     <input type="text" name="name" th:value="${tournament.name}">
     <input type="date" name="date" th:value="${tournament.date}">
     <input type="text" name="location" th:value="${tournament.location}">
-    <input type="submit" value="Update">
+    <input type="submit" value="Update" class="btn btn-warning btn-sm">
 
 </form>
-
+<th:block th:include="bootstrap::footer"/>
 </body>
 </html>

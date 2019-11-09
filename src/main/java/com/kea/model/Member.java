@@ -5,7 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Member {
@@ -14,17 +18,24 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)
+    @NotBlank
     private String firstname;
+    @NotBlank
     @Column(nullable = false)
     private String lastname;
+    @NotBlank
     @Column(nullable = false)
     private String birthday;
+    @NotBlank
     @Column(nullable = false)
     private String phonenumber;
     @Column(nullable = false)
     private int rating;
+    @NotNull
     @Column(nullable = false)
     private MemberRole role;
+    @ManyToMany(mappedBy = "members")
+    private Set<Tournament> tournaments;
 
     protected Member() {
     }
@@ -36,6 +47,14 @@ public class Member {
         this.phonenumber = phonenumber;
         this.rating = rating;
         this.role = role;
+    }
+
+    public Set<Tournament> getTournaments() {
+        return tournaments;
+    }
+
+    public void setTournaments(Set<Tournament> tournament) {
+        this.tournaments = tournament;
     }
 
     public Integer getId() {

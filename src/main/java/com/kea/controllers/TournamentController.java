@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class TournamentController {
@@ -58,8 +59,8 @@ public class TournamentController {
     @GetMapping("tournaments/view/{id}")
     public String viewTournament(@PathVariable("id") Integer id, Model model) {
         Tournament tournament = tournamentService.findTournament(id);
-        List<Member> enrolledMembers = tournamentService.getEnrolledMembers(id);
-        List<Member> notEnrolled = tournamentService.getNotEnrolledMembers(id);
+        Set<Member> enrolledMembers = tournamentService.getEnrolledMembers(id);
+        Set<Member> notEnrolled = tournamentService.getNotEnrolledMembers(id);
         model.addAttribute("tournament",tournament);
         model.addAttribute("enrolled", enrolledMembers);
         model.addAttribute("notEnrolled", notEnrolled);
