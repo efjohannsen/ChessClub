@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Tournament</title>
+    <th:block th:include="bootstrap::header"/>
+</head>
+<body>
+
+<table>
+    <tbody>
+    <tr>
+        <td>Name:</td>
+        <td th:text="${tournament.name}"></td>
+    </tr>
+    <tr>
+        <td>Date:</td>
+        <td th:text="${tournament.date}"></td>
+    </tr>
+    <tr>
+        <td>Location:</td>
+        <td th:text="${tournament.location}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<table>
+    <tbody>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                <tr>
+                    <th>Enrolled Members</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="member: ${enrolled}">
+                    <td th:text="${member.firstname + ' ' + member.lastname}"></td>
+                    <td><a th:href="@{'/tournaments/' + ${tournament.id} + '/delist/' +${member.id}}" class="btn btn-danger btn-sm">></a></td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+            <table>
+                <thead>
+                <tr>
+                    <th>Members</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="member: ${notEnrolled}">
+                    <td><a th:href="@{'/tournaments/' + ${tournament.id} + '/enlist/' +${member.id}}" class="btn btn-success btn-sm"><</a></td>
+                    <td th:text="${member.firstname + ' ' + member.lastname}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <th:block th:include="bootstrap::footer"/>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -9,6 +9,10 @@ buildNumber.properties
 .mvn/timing.properties
 .idea/workspace.xml
 .idea/libraries/*
+*.pdf
+*.docx
+*.txt
+*.pptx
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar

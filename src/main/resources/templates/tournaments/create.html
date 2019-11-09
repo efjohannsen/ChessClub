@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Tournament</title>
+    <th:block th:include="bootstrap::header"/>
+</head>
+<body>
+
+<form method="post" action="">
+
+    <input type="text" name="name" placeholder="name">
+    <input type="date" name="date" placeholder="">
+    <input type="text" name="location" placeholder="location">
+    <input type="submit" value="Create" class="btn btn-primary">
+
+</form>
+<th:block th:include="bootstrap::footer"/>
+</body>
+</html>
