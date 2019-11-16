@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>ChessClub</artifactId>
     <version>1</version>
-    <name>chess-club</name>
+    <name>ChessClub</name>
     <description>Chess Club Project</description>
 
     <properties>
