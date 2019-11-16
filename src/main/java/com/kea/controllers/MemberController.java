@@ -2,6 +2,7 @@ package com.kea.controllers;
 
 import com.kea.model.Member;
 import com.kea.service.MemberService;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ public class MemberController {
         return "members/list";
     }
 
+    @Secured({"ROLE_TEAMLEADER","ROLE_DIRECTOR"})
     @GetMapping("members/create")
     public String createMember() {
         return "members/create";

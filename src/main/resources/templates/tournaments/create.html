@@ -9,7 +9,7 @@
 
 <th:block th:include="logout-fragment::logout"/>
 
-<form method="post" action="">
+<form method="post" th:action="@{/tournaments/create}">
 
     <input type="text" name="name" placeholder="name">
     <input type="date" name="date" placeholder="">

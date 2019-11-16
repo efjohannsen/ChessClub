@@ -9,7 +9,7 @@
 
 <th:block th:include="logout-fragment::logout"/>
 
-<form action="" method="post">
+<form th:action="@{/members/create}" method="post">
 
     <input type="text" placeholder="firstname" name="firstname">
     <input type="text" placeholder="lastname" name="lastname">

@@ -9,7 +9,7 @@
 
 <th:block th:include="logout-fragment::logout"/>
 
-<form action="" method="post">
+<form th:action="@{#httpServletRequest.requestURL}" method="post">
 
     <input type="text" placeholder="firstname" name="firstname" th:value="${member.firstname}">
     <input type="text" placeholder="lastname" name="lastname" th:value="${member.lastname}">
