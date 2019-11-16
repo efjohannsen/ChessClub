@@ -7,6 +7,8 @@
 </head>
 <body>
 
+<th:block th:include="logout-fragment::logout"/>
+
 <form action="" method="post">
 
     <input type="text" placeholder="firstname" name="firstname" th:value="${member.firstname}">

@@ -64,7 +64,6 @@ public class TournamentController {
         model.addAttribute("tournament",tournament);
         model.addAttribute("enrolled", enrolledMembers);
         model.addAttribute("notEnrolled", notEnrolled);
-
         return "tournaments/view";
     }
 
