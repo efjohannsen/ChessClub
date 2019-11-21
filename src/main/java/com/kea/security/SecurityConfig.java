@@ -1,4 +1,4 @@
-package com.kea.bootstrap;
+package com.kea.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("Esben").password(passwordEncoder().encode("1234")).roles("MEMBER")
                 .and()
-                .withUser("klaus").password(passwordEncoder().encode("qwert")).roles("TEAMLEADER")
+                .withUser("jarl").password(passwordEncoder().encode("asger")).roles("TEAMLEADER")
                 .and()
                 .withUser("fattigmand").password(passwordEncoder().encode("rigmand")).roles("CASHIER")
                 .and()
