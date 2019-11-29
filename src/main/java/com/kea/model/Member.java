@@ -1,13 +1,6 @@
 package com.kea.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
@@ -17,21 +10,22 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    //@NotBlank
     @Column(nullable = false)
-    @NotBlank
     private String firstname;
-    @NotBlank
+    //@NotBlank
     @Column(nullable = false)
     private String lastname;
-    @NotBlank
+    //@NotBlank
     @Column(nullable = false)
     private String birthday;
-    @NotBlank
+    //@NotBlank
     @Column(nullable = false)
     private String phonenumber;
+    //@NotBlank
     @Column(nullable = false)
     private int rating;
-    @NotNull
+    //@NotBlank
     @Column(nullable = false)
     private MemberRole role;
     @ManyToMany(mappedBy = "members")
