@@ -37,6 +37,7 @@ public class MemberController {
         return "redirect:/members";
     }
 
+    @Secured({"ROLE_TEAMLEADER","ROLE_DIRECTOR"})
     @GetMapping("members/update/{id}")
     public String updateMember(@PathVariable("id") int id, Model model) {
         model.addAttribute("member", memberService.findMember(id));
@@ -49,6 +50,7 @@ public class MemberController {
         return "redirect:/members";
     }
 
+    @Secured({"ROLE_TEAMLEADER","ROLE_DIRECTOR"})
     @GetMapping("members/delete/{id}")
     public String deleteMember(@PathVariable("id") int id) {
         memberService.deleteMember(id);
